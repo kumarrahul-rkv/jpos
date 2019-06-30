@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Setting;
 use Illuminate\Http\Request;
+use Auth;
 
 class SettingController extends Controller
 {
@@ -20,8 +21,9 @@ class SettingController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $setting = Setting::first();
-        return view('admin.setting.setting', compact('setting'));
+        return view('admin.setting.setting', compact('user', 'setting'));
     }
 
     public function updateSetting(Request $request, Setting $setting)

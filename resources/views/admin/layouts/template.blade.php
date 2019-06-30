@@ -51,18 +51,18 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-home"></i> <span>{{ $setting->shop_name }}</span></a>
           </div>
           <div class="clearfix"></div>
 
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="{{ asset('assets/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+              <img src="{{ asset('assets/images/avatar/user.png') }}" alt="{{ $user->name }}'s Images'" class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <h2>{{ $user->name }}</h2>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -84,7 +84,9 @@
             <a data-toggle="tooltip" data-placement="top" title="Lock">
               <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Logout">
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
               <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
             </a>
           </div>

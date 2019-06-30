@@ -20,9 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['web'], 'prefix' => 'member'], function(){
-    Route::get('dashboard', function () {
-        return view('admin.dashboard.index');
-    })->name('dashboard');
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('setting', 'SettingController@index')->name('setting');
     Route::post('update-setting', 'SettingController@updateSetting')->name('update-setting');
 });
